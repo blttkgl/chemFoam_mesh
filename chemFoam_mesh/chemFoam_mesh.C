@@ -57,13 +57,14 @@ int main(int argc, char *argv[])
     #include "createFieldRefs.H"
     #include "readInitialConditions.H"
     #include "createControls.H"
-
+    #include "IDTcalculator.H"
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
     Info<< "\nStarting time loop\n" << endl;
 
     while (runTime.run())
     {
+        Told = thermo.T();
         #include "readControls.H"
 
         #include "setDeltaT.H"
@@ -75,6 +76,19 @@ int main(int argc, char *argv[])
         #include "YEqn.H"
         #include "hEqn.H"
         #include "pEqn.H"
+
+        Tcurr = thermo.T();
+        timestep = runTime.deltaTValue();
+        forAll(Tcurr,celli)
+        {
+            gradTcurr[celli] = (Tcurr[celli] - Told[celli]) / timestep;
+
+            if((gradTcurr[celli]>maxGradT[celli]) && Tcurr[celli]>(initialT[celli] + 200) && Tcurr[celli]<2000)
+            {
+                IDT[celli] = runTime.value() - startTime;
+                maxGradT[celli] = gradTcurr[celli];
+            }
+        }    
 
         runTime.write();
 

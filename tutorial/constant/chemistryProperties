@@ -22,7 +22,7 @@ chemistryType
 }
 
 chemistry       on;
-useReferenceCell off;
+useReferenceCell on;
 printChemCPUTimes off;
 operatorSplittingScheme Lie;
 initialChemicalTimeStep 8e-8;
@@ -36,7 +36,7 @@ odeCoeffs
 
 loadBalancing
 {
-    active            off;
+    active            on;
     mpiBufferLimit    40000;
     chemCPUTimeLimit  3.0;
     mpiInfoTableSize  5000;

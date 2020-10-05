@@ -18,18 +18,30 @@ FoamFile
 chemistryType
 {
     solver            ode;
-    method            standard;
+    method            pyJac;
 }
 
 chemistry       on;
+useReferenceCell off;
+printChemCPUTimes off;
+operatorSplittingScheme Lie;
 initialChemicalTimeStep 8e-8;
 
 odeCoeffs
 {
-    solver          seulex;
+    solver          seulex_LAPACK;
     absTol          1e-9;
     relTol          1e-5;
 }
+
+loadBalancing
+{
+    active            off;
+    mpiBufferLimit    40000;
+    chemCPUTimeLimit  3.0;
+    mpiInfoTableSize  5000;
+}
+
 
 
 

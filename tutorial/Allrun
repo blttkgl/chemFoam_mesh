@@ -9,9 +9,6 @@ cp -r 0.org 0
 # Set application name
 application=$(getApplication)
 
-runApplication chemkinToFoam \
-               chemkin/chem.inp chemkin/therm.dat chemkin/transportProperties \
-               constant/reactions constant/speciesThermo
 
 blockMesh
 setFields

@@ -3,12 +3,16 @@ EXE_INC = \
     -I$(LIB_SRC)/thermophysicalModels/reactionThermo/lnInclude \
     -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
     -I$(LIB_SRC)/transportModels/compressible/lnInclude \
-    -I$(LIB_SRC)/ODE/lnInclude\
-    -I$(LIB_SRC)/thermophysicalModels/chemistryModel/lnInclude \
+    -I../../../../src/ODE_pex/lnInclude\
+    -I../../../../src/thermophysicalModels_pex/chemistryModel_pex/lnInclude \
+    -I$(PYJAC_INC) \
+    -I$(PYJAC_INC)/jacobs \
     -I$(LIB_SRC)/finiteVolume/lnInclude \
     -I$(LIB_SRC)/meshTools/lnInclude
 
 EXE_LIBS = \
-    -lchemistryModel \
+    -L$(FOAM_USER_LIBBIN) \
+    -lchemistryModel_pex \
+    -lODE_pex \
     -lfiniteVolume \
     -lmeshTools

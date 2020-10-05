@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  dev                                   |
+|  \\    /   O peration     | Version:  2.4.0                                 |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -11,29 +11,24 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "constant";
-    object      thermophysicalProperties;
+    object      mixtureFractionProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-thermoType
+oxidizerMassFractions
 {
-    type            heRhoThermo;
-    mixture         reactingMixture;
-    transport       sutherland;
-    thermo          janaf;
-    energy          sensibleEnthalpy;
-    equationOfState perfectGas;
-    specie          specie;
+    N2       0.77;
+    O2	     0.23;
+
 }
 
-inertSpecie N2;
-chemistryRefCellFuelName CH4;
-Yf_refCell               0;
-Yox_refCell          0.23;
+fuelMassFractions
+{
+    CH4       1.0;
+}
 
 
-chemistryReader foamChemistryReader;
-foamChemistryFile "$FOAM_CASE/constant/reactions";
-foamChemistryThermoFile "$FOAM_CASE/constant/speciesThermo";
+#include "$FOAM_CASE/constant/specieElements_GRI.foam"
+
 
 // ************************************************************************* //

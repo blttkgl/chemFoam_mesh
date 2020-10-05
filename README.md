@@ -1,5 +1,6 @@
 # chemFoam_mesh
 ![OpenFOAM 8](https://img.shields.io/badge/OpenFOAM-8-brightgreen)
+![OpenFOAM 7](https://img.shields.io/badge/OpenFOAM-7-brightgreen.svg)
 
 A variation of OpenFOAM's chemFoam solver that runs on a full mesh instead of a single cell mesh.
 
@@ -16,6 +17,10 @@ A variation of OpenFOAM's chemFoam solver that runs on a full mesh instead of a 
 
 Check the given example case.
 
+
+## Note
+
+Main branch runs with v8. Check the of7 branch for v7 compatible version.
 
 ## References
 <a id="1">[1]</a> 

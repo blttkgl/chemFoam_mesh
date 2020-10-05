@@ -12,7 +12,7 @@ A variation of OpenFOAM's chemFoam solver that runs on a full mesh instead of a 
 ## References
 <a id="1">[1]</a> 
 H. Kahila, O. Kaario, Z. Ahmad, M. Ghaderi Masouleh, B. Tekgül, M. Larmi, V. Vuorinen, (2019). 
-A large-eddy simulation study on the influence of diesel pilot spray quantity on methane-air flame initiation.
+[A large-eddy simulation study on the influence of diesel pilot spray quantity on methane-air flame initiation.](https://www.sciencedirect.com/science/article/pii/S001021801930238X)
 Combustion and Flame, 206, 506-521.
 
 <a id="2">[1]</a> 

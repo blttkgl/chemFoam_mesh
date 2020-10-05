@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "chemFoam_mesh.C": "cpp",
+        "chemFoam.C": "cpp"
+    }
+}

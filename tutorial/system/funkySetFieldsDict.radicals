@@ -1,0 +1,184 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.0.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      funkySetFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+expressions
+(
+
+    Uscaled
+    {
+        field U;
+        create false;
+        variables
+        (
+            "Umax=20;"
+        );
+        expression "Umax*U/(max(mag(U)))";
+        keepPatches true;
+        dimension [0 0 0 0 0 0 0];
+    }
+
+
+    Tsmooth
+    {
+        field T;
+        create false;
+        variables
+        (
+            "A=1.68992244e+03;"       
+            "x0=0.005;"           
+            "y0=0.005;"          
+            "s=0.001;"
+        );
+        expression "1000 + ((A-1000)*( exp(-(pow((pos().x-x0),2)/(2*pow(s,2)) + (pow(pos().y-y0,2))/(2*pow(s,2))))  ))";
+        keepPatches true;
+        dimension [0 0 0 0 0 0 0];
+    }
+
+    OHsmooth
+    {
+        field OH;
+        create false;
+        variables
+        (
+            "A=3.7551e-03;"
+            "x0=0.005;"
+            "y0=0.005;"
+            "s=0.001;"
+        );
+        expression " (A*( exp(-(pow((pos().x-x0),2)/(2*pow(s,2)) + (pow(pos().y-y0,2))/(2*pow(s,2))))  ))";
+        keepPatches true;
+        dimension [0 0 0 0 0 0 0];
+    }
+
+
+    H2O2smooth
+    {
+        field H2O2;
+        create false;
+        variables
+        (
+            "A=8.489e-07;"
+            "x0=0.005;"
+            "y0=0.005;"
+            "s=0.001;"
+        );
+        expression "(A*( exp(-(pow((pos().x-x0),2)/(2*pow(s,2)) + (pow(pos().y-y0,2))/(2*pow(s,2))))  ))";
+        keepPatches true;
+        dimension [0 0 0 0 0 0 0];
+    }
+
+    CH2Osmooth
+    {
+        field CH2O;
+        create false;
+        variables
+        (
+            "A=1.000e-06;"
+            "x0=0.005;"
+            "y0=0.005;"
+            "s=0.001;"
+        );
+        expression "(A*( exp(-(pow((pos().x-x0),2)/(2*pow(s,2)) + (pow(pos().y-y0,2))/(2*pow(s,2))))  ))";
+        keepPatches true;
+        dimension [0 0 0 0 0 0 0];
+    }
+
+    CH4smooth
+    {
+        field CH4;
+        create false;
+        variables
+        (
+            "A=2.650e-06;"
+            "x0=0.005;"
+            "y0=0.005;"
+            "s=0.001;"
+        );
+        expression "0.049926 + ((A-0.049926)*( exp(-(pow((pos().x-x0),2)/(2*pow(s,2)) + (pow(pos().y-y0,2))/(2*pow(s,2))))  ))";
+        keepPatches true;
+        dimension [0 0 0 0 0 0 0];
+    }
+
+    O2smooth
+    {   
+        field O2;
+        create false;
+        variables
+        (   
+            "A=1.536e-01;"
+            "x0=0.005;"
+            "y0=0.005;"
+            "s=0.001;"
+        );
+        expression "0.221289 + ((A-0.221289)*( exp(-(pow((pos().x-x0),2)/(2*pow(s,2)) + (pow(pos().y-y0,2))/(2*pow(s,2))))  ))";
+        keepPatches true;
+        dimension [0 0 0 0 0 0 0];
+    }   
+    COsmooth
+    {   
+        field CO;
+        create false;
+        variables
+        (   
+            "A=3.4813e-02;"
+            "x0=0.005;"
+            "y0=0.005;"
+            "s=0.001;"
+        );
+        expression "(A*( exp(-(pow((pos().x-x0),2)/(2*pow(s,2)) + (pow(pos().y-y0,2))/(2*pow(s,2))))  ))";
+        keepPatches true;
+        dimension [0 0 0 0 0 0 0];
+    }   
+    CO2smooth
+    {   
+        field CO2;
+        create false;
+        variables
+        (   
+            "A=2.2934e-02;"
+            "x0=0.005;"
+            "y0=0.005;"
+            "s=0.001;"
+        );
+        expression "(A*( exp(-(pow((pos().x-x0),2)/(2*pow(s,2)) + (pow(pos().y-y0,2))/(2*pow(s,2))))  ))";
+        keepPatches true;
+        dimension [0 0 0 0 0 0 0];
+    }
+
+    N2smooth
+    {
+        field N2;
+        create false;
+        variables
+        (
+            "A=0.7848934011;"
+            "x0=0.005;"
+            "y0=0.005;"
+            "s=0.001;"
+        );
+        expression "0.728785+((A-0.728785)*( exp(-(pow((pos().x-x0),2)/(2*pow(s,2)) + (pow(pos().y-y0,2))/(2*pow(s,2))))  ))";
+        keepPatches true;
+        dimension [0 0 0 0 0 0 0];
+    }
+
+);
+
+
+
+
+// ************************************************************************* //
+

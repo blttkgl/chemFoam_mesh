@@ -11,6 +11,12 @@ A variation of OpenFOAM's chemFoam solver that runs on a full mesh instead of a 
 
 * By configuring the simulation case you can even do parameter sweeps in OpenFOAM. Example: Keep concentrations constant, vary the temperature in domain and use this solver for a temperature sweep on a certain mixture.
 
+
+## Usage
+
+Check the given example case.
+
+
 ## References
 <a id="1">[1]</a> 
 H. Kahila, O. Kaario, Z. Ahmad, M. Ghaderi Masouleh, B. Tekgül, M. Larmi, V. Vuorinen (2019). 
@@ -22,6 +28,3 @@ Sage L. Kokjohn, Mark P.B. Musculus, Rolf D. Reitz (2015).
 [Evaluating temperature and fuel stratification for heat-release rate control in a reactivity-controlled compression-ignition engine using optical diagnostics and chemical kinetics modeling.](http://www.sciencedirect.com/science/article/pii/S0010218015001200)
 Combustion and Flame, 162(6), 2729-2742.
 
-## Usage
-
-Check the given example case.

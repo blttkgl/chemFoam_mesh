@@ -148,7 +148,8 @@
         rho0[celli] = rho[celli];
     }
     thermo.correct();
-   volScalarField integratedHeat
+
+    volScalarField integratedHeat
     (
         IOobject
         (
@@ -156,8 +157,24 @@
             runTime.timeName(),
             mesh,
             IOobject::NO_READ,
-            IOobject::NO_WRITE
+            IOobject::NO_WRITE,
+            false
         ),
         mesh,
-        0.0
-        ); 
+        dimensionedScalar("integratedHeat", dimEnergy/dimMass/dimTime, 0.0)
+    );
+    volScalarField Qdot
+    (
+        IOobject
+        (
+            "Qdot",
+            runTime.timeName(),
+            mesh,
+            IOobject::NO_READ,
+            IOobject::NO_WRITE,
+            false
+        ),
+        mesh,
+        dimensionedScalar("Qdot", dimEnergy/dimMass/dimTime, 0.0)
+    );
+

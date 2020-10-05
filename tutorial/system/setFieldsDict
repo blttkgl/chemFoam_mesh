@@ -23,10 +23,13 @@ defaultFieldValues
 
 regions
 (
-    sphereToCell
+    boxToCell
     {
-        centre (0.004 0.004 4e-5);
-        radius 1e-3;
+
+    boxes
+    (
+        (0.002 0.002 0) (0.006 0.006 8e-5) // box-1
+    );
         fieldValues
         (
             volScalarFieldValue T 1300

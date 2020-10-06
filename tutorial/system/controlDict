@@ -44,6 +44,7 @@ runTimeModifiable true;
 adjustTimeStep  yes;
 
 maxDeltaT	1e-4;
+minDeltaT	1e-6;
 DebugSwitches
 {
     SolverPerformance   0;

@@ -1,2 +1,3 @@
 Switch adjustTimeStep(runTime.controlDict().lookup("adjustTimeStep"));
-scalar maxDeltaT(readScalar(runTime.controlDict().lookup("maxDeltaT")));
+scalar maxDeltaT(runTime.controlDict().lookup<scalar>("maxDeltaT"));
+scalar minDeltaT(runTime.controlDict().lookup<scalar>("minDeltaT"));

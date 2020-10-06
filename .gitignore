@@ -1,3 +1,6 @@
+# OpenFOAM
+chemFoam_mesh/**/Make/linux64*
+
 #Visual studio code configs
 .vscode
 

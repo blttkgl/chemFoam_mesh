@@ -13,13 +13,13 @@
 
 
     Info<< "Reading thermophysical properties\n" << endl;
-    autoPtr<rhoReactionThermo> pThermo(rhoReactionThermo::New(mesh));
-    rhoReactionThermo& thermo = pThermo();
+    autoPtr<psiReactionThermo> pThermo(psiReactionThermo::New(mesh));
+    psiReactionThermo& thermo = pThermo();
     thermo.validate(args.executable(), "h");
 
-    autoPtr<BasicChemistryModel<rhoReactionThermo>> pChemistry
+    autoPtr<BasicChemistryModel<psiReactionThermo>> pChemistry
     (
-        BasicChemistryModel<rhoReactionThermo>::New(thermo)
+        BasicChemistryModel<psiReactionThermo>::New(thermo)
     );
 
     #include "createBaseFields.H"

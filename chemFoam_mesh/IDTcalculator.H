@@ -61,11 +61,12 @@ volScalarField initialT
     (
         "initialT",
         runTime.timeName(),
-        mesh
+        mesh,
+        IOobject::NO_READ,
+        IOobject::AUTO_WRITE
     ),
     thermo.T()
 );
-
 scalar timestep;
 scalar startTime = runTime.value();
 
